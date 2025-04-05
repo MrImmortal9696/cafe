@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border-radius: 5px;
+  position: absolute;
+  opacity: 0;
+  /* background-color: #0a0a0a; */
+  will-change: transform, opacity;
+  animation: carousel 12s ease-in-out infinite; /* 6 seconds per card */
+}
+
+/* Adjust animation delay for each card */
+.card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 6s;
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateY(50%) translateX(10%); /* Start below the screen */
+    opacity: 0;
+    visibility: hidden;
+  }
+  5% {
+    transform: translateY(0); /* Move into view */
+    opacity: 1;
+    visibility: visible;
+  }
+  50% {
+    transform: translateY(0); /* Fully visible and stationary */
+    opacity: 1;
+    visibility: visible;
+  }
+  55% {
+    transform: translateY(-50%) translateX(10%); /* Start moving out upward */
+    opacity: 0;
+    visibility: visible;
+  }
+  90%,
+  100% {
+    transform: translateY(100%); /* Reset below the screen for next cycle */
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Ensures the slide container takes full space */
+
+.orange-button {
+  @apply bg-orange-400 font-semibold text-white xl:text-[14px]  text-[12px] tracking-wider rounded-md lg:py-3 py-2 xl:px-10 px-4 ;
+}
+.not-orange-button {
+  @apply bg-white text-black font-semibold  lg:text-[14px] text-[12px] tracking-wider rounded-md lg:py-3 py-2 xl:px-10 px-4 ;
+}
+.flex-between {
+  @apply flex  justify-between;
+}
+.flex-around-center {
+  @apply flex  justify-around items-center;
+}
+.flex-col-around-center {
+  @apply flex flex-col justify-around items-center;
+}
+.flex-start-center {
+  @apply flex  justify-center;
+}
+.flex-col-start-center {
+  @apply flex flex-col justify-center;
+}
+.flex-center {
+  @apply flex items-center justify-center;
+}
+.flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+.container-shadow-top {
+  box-shadow: 0px -10px 0px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes tumble45 {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes play-pulse {
+  0% {
+    width: 50px;
+    height: 50px;
+  }
+  50% {
+    width: 70px;
+    height: 70px;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+  }
+}
+.tumble {
+  animation: tumble45 2s infinite ease-in-out;
+}
+.play-pulse-animation {
+  animation: play-pulse 2s infinite ease-in;
+}
+
+@keyframes moveUpFadeOut {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(25px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+.animated-text {
+  animation: moveUpFadeOut 3s forwards;
+}
+
+.loader {
+  border: 3px solid transparent;
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
