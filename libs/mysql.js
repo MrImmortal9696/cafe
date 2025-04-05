@@ -1,10 +1,11 @@
 import mysql from 'mysql2/promise';
+
 // Connection Pool
 export const connect_mysql = mysql.createPool({
   host: '148.135.138.206',   // VPS IP
-  user: 'omkar',             // MySQL user
-  password: 'Omkar@12345',   // Password
-  database: 'new_client_db', // New database
+  user: 'shreyash',             // MySQL user
+  password: 'Shreyash@12345',   // Password
+  database: 'demo_client', // New database
   port: 3306,                // Default MySQL port
   connectionLimit: 200,      // Connection pool size
   waitForConnections: true,  // Queue handling
@@ -15,9 +16,9 @@ export const connect_mysql = mysql.createPool({
 export const connect_mysql_obj = async () => {
   const connection = await mysql.createConnection({
     host: '148.135.138.206',
-    user: 'omkar',
-    password: 'Omkar@12345',
-    database: 'new_client_db',
+    user: 'shreyash',
+    password: 'Shreyash@12345',
+    database: 'demo_client',
     port: 3306,
   });
   return connection;
@@ -26,7 +27,7 @@ export const connect_mysql_obj = async () => {
 
 
 
-// //Hostinger Connection
+// // //Hostinger Connection
 
 // import mysql from 'mysql2/promise';
 
@@ -57,5 +58,5 @@ export const connect_mysql_obj = async () => {
 
 
 
-//SELECT User, Host FROM mysql.user;
-//SHOW GRANTS FOR 'omkar'@'%';
+// //SELECT User, Host FROM mysql.user;
+// //SHOW GRANTS FOR 'omkar'@'%';
